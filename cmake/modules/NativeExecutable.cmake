@@ -68,7 +68,7 @@ function(add_native_executable NAME)
 			"${CMAKE_SOURCE_DIR}/cmake/templates/NativeBuildRunner.cmake.in"
 			"${CMAKE_CURRENT_BINARY_DIR}/build_native_${NAME}.sh"
 		)
-		file(CHMOD "${CMAKE_CURRENT_BINARY_DIR}/build_native_${NAME}.sh" OWNER_READ OWNER_WRITE OWNER_EXECUTE)
+		file(CHMOD "${CMAKE_CURRENT_BINARY_DIR}/build_native_${NAME}.sh" PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE)
 
 		# We create a symlink because cmake craps itself if the imported
 		# executable has the same name as the executable itself.
@@ -120,7 +120,7 @@ function(_gen_native_cmake_target)
 		"${CMAKE_SOURCE_DIR}/cmake/templates/NativeCmakeRunner.cmake.in"
 		"${CMAKE_BINARY_DIR}/config/run_native_cmake.sh"
 	)
-	file(CHMOD "${CMAKE_BINARY_DIR}/config/run_native_cmake.sh" OWNER_READ OWNER_WRITE OWNER_EXECUTE)
+	file(CHMOD "${CMAKE_BINARY_DIR}/config/run_native_cmake.sh" PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE)
 endfunction(_gen_native_cmake_target)
 
 function(_gen_native_cmake_hook VAR ACCESS)
